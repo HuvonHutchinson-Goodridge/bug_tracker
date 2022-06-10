@@ -4,18 +4,18 @@ Person::Person(std::string first_name, std::string last_name, std::string email,
 {
 }
 
-void Person::addBug() {
+void Person::addBug(std::shared_ptr<sql::Connection> con) {
 }
 
-void Person::deleteBug() {
+void Person::deleteBug(std::shared_ptr<sql::Connection> con) {
     
 }
 
-void Person::updateBug() {
+void Person::updateBug(std::shared_ptr<sql::Connection> con) {
    
 }
 
-void Person::deleteAccount() {
+void Person::deleteAccount(std::shared_ptr<sql::Connection> con) {
 
 }
 

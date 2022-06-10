@@ -7,7 +7,7 @@ Faculty::Faculty(std::string first_name, std::string last_name, std::string emai
 {
 }
 
-void Faculty::addBug() {
+void Faculty::addBug(std::shared_ptr<sql::Connection> con) {
     std::string bug;
     std::string bug_date = time_stamp();
     int bug_creator{ account_id };
@@ -15,34 +15,23 @@ void Faculty::addBug() {
     std::getline(std::cin, bug);
     sql::Driver* driver{ nullptr };
 
-    try
-    {
-        driver = get_driver_instance();
-        std::unique_ptr<sql::Connection> con(driver->connect(MY_SERVER, MY_USER, MY_DB_PASSWORD));
-        con->setSchema(MY_DB);
-        std::unique_ptr<sql::PreparedStatement> pstmt(con->prepareStatement(" bugs(bug, bug_date, bug_creator) VALUES(?,?,?)"));
-        pstmt->setString(1, bug);
-        pstmt->setString(2, bug_date);
-        pstmt->setInt(3, bug_creator);
-        pstmt->execute();
-    }
-    catch (sql::SQLException e)
-    {
-        std::cout << "Could not connect to server. Error message: " << e.what() << std::endl;
-        system("pause");
-        exit(1);
-    }
+;
+    std::unique_ptr<sql::PreparedStatement> pstmt(con->prepareStatement(" bugs(bug, bug_date, bug_creator) VALUES(?,?,?)"));
+    pstmt->setString(1, bug);
+    pstmt->setString(2, bug_date);
+    pstmt->setInt(3, bug_creator);
+    pstmt->execute();
 }
 
-void Faculty::deleteBug() {
+void Faculty::deleteBug(std::shared_ptr<sql::Connection> con) {
     std::cout << "whore" << std::endl;
 }
 
-void Faculty::updateBug() {
+void Faculty::updateBug(std::shared_ptr<sql::Connection> con) {
     std::cout << "whore" << std::endl;
 }
 
-void Faculty::deleteAccount() {
+void Faculty::deleteAccount(std::shared_ptr<sql::Connection> con) {
 
 }
 

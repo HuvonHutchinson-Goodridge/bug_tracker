@@ -30,10 +30,10 @@ public:
         std::string email = def_email,
         std::string account_version = def_account_version,
         int account_id = def_account_id);
-    virtual void addBug() = 0;
-    virtual void deleteAccount() = 0;
-    virtual void deleteBug() = 0;
-    virtual void updateBug() = 0;
+    virtual void addBug(std::shared_ptr<sql::Connection> con) = 0;
+    virtual void deleteAccount(std::shared_ptr<sql::Connection> con) = 0;
+    virtual void deleteBug(std::shared_ptr<sql::Connection> con) = 0;
+    virtual void updateBug(std::shared_ptr<sql::Connection> con) = 0;
     virtual void print(std::ostream& os) const override;
     virtual ~Person() = default;
 };

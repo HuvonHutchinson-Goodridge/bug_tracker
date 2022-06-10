@@ -22,11 +22,11 @@ public:
         std::string email = def_email,
         std::string account_version = def_account_version,
         int account_id = def_account_id);
-    virtual void addBug() override;
-    virtual void deleteBug() override;
-    virtual void updateBug() override;
-    virtual void deleteAccount();
-    void updateAccount();
+    virtual void addBug(std::shared_ptr<sql::Connection> con) override;
+    virtual void deleteBug(std::shared_ptr<sql::Connection> con) override;
+    virtual void updateBug(std::shared_ptr<sql::Connection> con) override;
+    virtual void deleteAccount(std::shared_ptr<sql::Connection> con);
+    void updateAccount(std::shared_ptr<sql::Connection> con);
     virtual void print(std::ostream& os) const override;
     virtual ~Administrator() = default;
 };

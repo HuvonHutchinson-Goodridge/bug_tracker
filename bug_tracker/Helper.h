@@ -18,7 +18,7 @@ std::tm localtime_xp(std::time_t timer);
 std::string time_stamp(const std::string& fmt = "%F %T");
 
 //FOR THE CREATION OF ACCOUNTS
-void create_account(std::string& response);
+void create_account(std::string& response, std::shared_ptr<sql::Connection> con);
 
 //FOR LOGGING INTO THE APPLICATION
 
@@ -26,7 +26,7 @@ bool login(std::string& email, std::string& password);
 
 //FOR ENTERING THE APPLICATION
 
-void enter_application(bool login_bool, std::string& email, std::string& password);
+void enter_application(bool login_bool, std::string& email, std::string& password, std::shared_ptr<sql::Connection> con);
 
 void guest_application(bool login_bool, std::string& first_name, std::string& last_name);
 
