@@ -13,6 +13,9 @@
 #include "Guest.h"
 #include "mysql_connection.h"
 
+//FOR THE INITIALIZATION OF THE APPLICATION
+void init();
+
 //FOR THE SETTING OF BUG TIME CREATION
 std::tm localtime_xp(std::time_t timer);
 std::string time_stamp(const std::string& fmt = "%F %T");
